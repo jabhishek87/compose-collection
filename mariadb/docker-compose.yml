@@ -1,16 +1,15 @@
 version: "3"
 services:
   mariadb:
-    env_file:
-      - env_var.env
     container_name: mariadb-dev
-    image: "mariadb:${MARIADB_VERSION}"
+    image: "mariadb:latest"
     ports:
       - '3306:3306'
-    # volumes:
-    #   - ./data_dir:/data/db
+    volumes:
+      - ./data_dir:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD="${MYSQL_ROOT_PASSWORD}"
-      - MYSQL_DATABASE="${MYSQL_DATABASE}"
-      - MYSQL_USER="${MYSQL_USER}"
-      - MYSQL_PASSWORD="${MYSQL_PASSWORD}"
+      MYSQL_ROOT_PASSWORD: sup3rs3cr3t
+      MYSQL_DATABASE: pheonix
+      MYSQL_USER: pheonix
+      MYSQL_PASSWORD: s3cr3t
+# docker exec -it mariadb-dev bash -c "mysql -u pheonix -ps3cr3t"
