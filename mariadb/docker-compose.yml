@@ -8,8 +8,8 @@ services:
     volumes:
       - ./data_dir:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: sup3rs3cr3t
-      MYSQL_DATABASE: pheonix
-      MYSQL_USER: pheonix
-      MYSQL_PASSWORD: s3cr3t
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 # docker exec -it mariadb-dev bash -c "mysql -u pheonix -ps3cr3t"
