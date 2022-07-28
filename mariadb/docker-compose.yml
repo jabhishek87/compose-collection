@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mariadb:
+    env_file:
+      - env_var.env
+    container_name: mariadb-dev
+    image: "mariadb:${MARIADB_VERSION}"
+    ports:
+      - '3306:3306'
+    # volumes:
+    #   - ./data_dir:/data/db
+    environment:
+      - MYSQL_ROOT_PASSWORD="${MYSQL_ROOT_PASSWORD}"
+      - MYSQL_DATABASE="${MYSQL_DATABASE}"
+      - MYSQL_USER="${MYSQL_USER}"
+      - MYSQL_PASSWORD="${MYSQL_PASSWORD}"
