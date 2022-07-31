@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mariadb:
+    container_name: mariadb-dev
+    image: "mariadb:latest"
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./data_dir:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb
+    restart: always
+    ports:
+      - 7777:8080
+    depends_on:
+      - mariadb
+# docker exec -it mariadb-dev bash -c "mysql -u pheonix -ps3cr3t"
