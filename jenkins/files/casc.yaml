@@ -1,4 +1,5 @@
 jenkins:
+  systemMessage: "Jenkins configured automatically by Jenkins Configuration as Code plugin\n\n"
   securityRealm:
     local:
       allowsSignup: false
@@ -8,10 +9,11 @@ jenkins:
   authorizationStrategy:
     globalMatrix:
       permissions:
+        - "Overall/Read:anonymous"
         - "Overall/Administer:admin"
-        - "Overall/Read:authenticated"
-  remotingSecurity:
-    enabled: true
+        # - "Overall/Read:authenticated"
+  # remotingSecurity:
+  #   enabled: true
 security:
   queueItemAuthenticator:
     authenticators:
@@ -19,4 +21,5 @@ security:
         strategy: triggeringUsersAuthorizationStrategy
 unclassified:
   location:
-    url: http://localhost:8080/
+    url: http://kubernetes.docker.internal:8080/
+    adminAddress: admin@admin.com
