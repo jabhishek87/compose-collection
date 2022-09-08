@@ -1,0 +1,29 @@
+//https://stackoverflow.com/questions/45711473/how-to-load-dynamic-jenkinsfile-during-a-build
+pipelineJob('testJob') {
+    displayName('Test JOb')
+    description("Description: <br><br>")
+
+    parameters {
+        stringParam('GITHUB_ID', 'jabhishek87/devops_jenkins_tutz', "GIT username/reponame")
+        // stringParam('GIT_REFSPEC', 'origin/main', "Git Refspec")
+        // stringParam('GIT_BRANCH', 'main', "Gerrit branch")
+        stringParam('FILEPATH', 'path/to/job.groovy', "Relative path to groovy / jenkinsfile")
+        //string(name: 'Grrovy File Name', defaultValue: 'path/to/job.groovy', description: 'Relative path to groovy / jenkinsfile')
+
+    }
+    triggers {
+        definition {
+            cps {
+                //def refspec = GIT_REFSPEC.replace('refs/', '')
+                def file_path = FILEPATH
+                println(file_path)
+                //def libraryVersion = "@Library(\"nc_cicd_internal_libs@${refspec}\") \nimport groovy.lang.*\n"
+                def libraryVersion = "import groovy.lang.*\n"
+                def jenkinsfile = readFileFromWorkspace(file_path)
+
+                script(libraryVersion + jenkinsfile)
+                sandbox(true)
+            }
+        }
+    }
+}

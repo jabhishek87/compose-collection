@@ -23,3 +23,14 @@ unclassified:
   location:
     url: http://kubernetes.docker.internal:8080/
     adminAddress: admin@admin.com
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          id: "jabhishek-github-pat"
+          username: "jabhishek87"
+          password: "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"
+          scope: GLOBAL
+jobs:
+  - file: /var/jenkins_home/super_seed.groovy

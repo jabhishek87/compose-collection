@@ -1,6 +1,7 @@
 ant:latest
 authorize-project:latest
 antisamy-markup-formatter:latest
+build-user-vars:latest
 build-timeout:latest
 cloudbees-folder:latest
 configuration-as-code:latest
