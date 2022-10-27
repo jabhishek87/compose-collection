@@ -1,0 +1,8 @@
+---
+
+- name: Getting Started First Playbook
+  # gather_facts: false
+  hosts: all
+  tasks:
+    - name: Include task list in play
+      include: stuff.yaml

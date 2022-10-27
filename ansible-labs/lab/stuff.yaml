@@ -1,0 +1,11 @@
+- name: Display the config
+  debug:
+    msg: "The hostname is {{ ansible_hostname }} and the OS {{ ansible_distribution }}"
+
+- name: Display variable from groupvars
+  debug:
+    msg: "home_path={{ home_path }} js_ip = {{common_server.activejs_ip}}"
+
+- name: Display variable from groupvars
+  debug:
+    msg: "ansible_user={{ cso_credentials.ansible_user }} js = {{common_server.activejs}}"

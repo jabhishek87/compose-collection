@@ -1,0 +1,12 @@
+home_path: /root/some_folder/
+dir_path: /root/somefolder/dynamic_inventory
+dir_host_name: somehostname
+dir_user: ubuntu
+
+
+common_server:
+  activejs_ip: 172.17.0.2
+  activejs: fqdn.hostname.org.com
+
+cso_credentials:
+  ansible_user: root
